@@ -1,7 +1,6 @@
 package br.com.bytebank.banco.test.util;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -44,49 +43,27 @@ public class Teste {
 		lista.add(cc3);
 		lista.add(cc4);
 		
-		for (Conta conta : lista) {
-			System.out.println(conta);
-			
-		}				
+//		for (Conta conta : lista) {
+//			System.out.println(conta);
+//		}				
 		
-		NumeroDaContaComparator comparator = new NumeroDaContaComparator();
-		lista.sort(comparator);
-				
-		lista.sort(new TitularDaContaComparator());
+		lista.forEach((conta) -> System.out.println(conta));
 		
-//		Collections.sort(lista);
+		lista.sort((c1,  c2) -> Integer.compare(c1.getNumero(), c2.getNumero()) );
+		
+		Comparator<Conta> comp = (Conta c1, Conta c2) -> {
+				String nomeC1 = c1.getTitular().getNome();
+				String nomeC2 = c2.getTitular().getNome();
+				return nomeC1.compareTo(nomeC2);
+		};
 		
 		System.out.println("----------------");
 		
-		for (Conta conta : lista) {
-			System.out.println(conta);
-			
-		}
-
+		lista.forEach((conta) -> System.out.println(conta));
+		
+//		for (Conta conta : lista) {
+//			System.out.println(conta);
+//			
+//		}
 	}
-
-}
-
-class NumeroDaContaComparator implements Comparator<Conta>{
-
-	@Override
-	public int compare(Conta c1, Conta c2) {
-		return Integer.compare(c1.getNumero(), c2.getNumero());
-	}
-	
-	
-	
-}
-
-class TitularDaContaComparator implements Comparator<Conta>{
-
-	@Override
-	public int compare(Conta c1, Conta c2) {
-		String nomeC1 = c1.getTitular().getNome();
-		String nomeC2 = c2.getTitular().getNome();		
-		return nomeC1.compareTo(nomeC2);
-	}
-	
-	
-	
 }

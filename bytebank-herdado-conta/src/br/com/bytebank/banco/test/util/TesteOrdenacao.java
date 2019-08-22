@@ -67,7 +67,7 @@ public class TesteOrdenacao {
 
 }
 
-class NumeroDaContaComparator2 implements Comparator<Conta>{
+class NumeroDaContaComparator implements Comparator<Conta>{
 
 	@Override
 	public int compare(Conta c1, Conta c2) {
@@ -78,7 +78,7 @@ class NumeroDaContaComparator2 implements Comparator<Conta>{
 	
 }
 
-class TitularDaContaComparator2 implements Comparator<Conta>{
+class TitularDaContaComparator implements Comparator<Conta>{
 
 	@Override
 	public int compare(Conta c1, Conta c2) {
